@@ -1,6 +1,6 @@
 # My Project Template
 
-During my work at Red Hat I have come across various projects. To better structure my work and to be better prepared for my upcoming projects, I have developed a project structure which helps me during both pre-sales and delivery phase. I means that the consultants are able to anything that was developed during pre-sales and vice versa. 
+During my work I have come across various projects. To better structure my work and to be better prepared for my upcoming projects, I have developed a project structure which helps me during both pre-sales and delivery phase. I means that the consultants are able to anything that was developed during pre-sales and vice versa. 
 
 The storage backend for the projects is git, as it allows for multiple remote storage locations, sub-modules if we need to pull in another repository from another source, etc.
 
@@ -17,4 +17,16 @@ The project template is structured in the following way:
 # This README
 This Readme should be modified as well. It should contain links to all sources related to this customer / project. It should contain links to PT, to salesforce, to mojo, etc. Wherever you store assets outside of this repository you should link the content within this README, so the repository is really the single source of truth.
 
+# Setting everything up
+```
+$ GOOGLE_DRIVE_FOLDER="/Users/buddy/RH Google Drive"
+$ git clone --depth 1 --origin source https://github.com/juhoffma/project-template.git new-project
+$ cd new-project
+$ mkdir ${GOOGLE_DRIVE_FOLDER}/new-project.git
+$ pushd ${GOOGLE_DRIVE_FOLDER}/new-project.git > /dev/null
+$ git init --shared --bare
+$ popd > /dev/null
+$ git remote add google ${GOOGLE_DRIVE_FOLDER}/new-project.git
+$ git push google master
+```
 Buddy

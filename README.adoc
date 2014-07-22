@@ -28,6 +28,10 @@ Modify the README.adoc to contain links to all sources related to this customer 
 
 # Working with the project template
 
+## Repository naming conventions
+
+We should agree on a common way of naming repositories...TBD
+
 ## Instantiating a repository
 
 The setup of the project template is 2-folded. First we initialize the repository and fetch the template. Then we add another remote to push our repository to (Google Drive in my case). Our new project is called `new-project`. Let us create a directory and initialize the git repository.

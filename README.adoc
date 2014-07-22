@@ -1,10 +1,14 @@
-# My Project Template
+# My Project Template 
+
+## Meta (delete this section)
 
 During my work I have come across various projects. To better structure my work and to be better prepared for my upcoming projects, I have developed a project structure which helps me during both pre-sales and delivery phase. I means that the consultants are able to anything that was developed during pre-sales and vice versa. 
 
-The storage backend for the projects is git, as it allows for multiple remote storage locations, sub-modules if we need to pull in another repository from another source, etc.
+The storage backend for the projects is git, as it allows for multiple remote storage locations, sub-modules if we need to pull in another repository from another source, etc. By replicating to Google Drive, we can share the repository with other users and use the Google Drive access control mechanisms.
 
 This project template should be used as a customer template, which will then in turn hold a reference to all projects delivered to the customer. That practice allows us to have all projects in one spot, easy grep-ing, etc.
+
+## Structure
 
 The project template is structured in the following way:
 
@@ -14,10 +18,17 @@ The project template is structured in the following way:
 - *Engagement Reports* - This is the consultants space. 
 - *Project Plans* - This is where we store project plans, etc. 
 
-# This README
-This Readme should be modified as well. It should contain links to all sources related to this customer / project. It should contain links to PT, to salesforce, to mojo, etc. Wherever you store assets outside of this repository you should link the content within this README, so the repository is really the single source of truth.
+## Information outside of this repository
 
-# Setting everything up
+Modify the README.adoc to contain links to all sources related to this customer / project. Wherever you store assets outside of this repository you should link the content within this README, so the repository is really the single source of truth:
+
+- Links to PT
+- Links to Mojo
+- Links to Salesforce
+
+# Working with the project template
+
+## Instantiating a repository
 
 The setup of the project template is 2-folded. First we initialize the repository and fetch the template. Then we add another remote to push our repository to (Google Drive in my case). Our new project is called `new-project`. Let us create a directory and initialize the git repository.
 
@@ -59,6 +70,22 @@ Total 7 (delta 0), reused 0 (delta 0)
 To /Users/buddy/RH Google Drive/new-project.git
  * [new branch]      master -> master
 ```
+
+## Sharing the repository with other users
+
+TBD
+
+## Creating a local clone of a repository
+
+TBD
+
+## Merging your changes with the master repository
+
+TBD
+
+## Handing over master repository ownership to another person
+
+TBD
 
 That's it, now you are good to go
 

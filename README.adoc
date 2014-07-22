@@ -18,15 +18,48 @@ The project template is structured in the following way:
 This Readme should be modified as well. It should contain links to all sources related to this customer / project. It should contain links to PT, to salesforce, to mojo, etc. Wherever you store assets outside of this repository you should link the content within this README, so the repository is really the single source of truth.
 
 # Setting everything up
+
+The setup of the project template is 2-folded. First we initialize the repository and fetch the template. Then we add another remote to push our repository to (Google Drive in my case). Our new project is called `new-project`. Let us create a directory and initialize the git repository.
+
+```
+$ mkdir new-project
+$ cd new-project/
+$ git init
+$ touch .gitignore
+$ git add .gitignore
+$ git commit -m "initial commit"
+```
+
+Please note that we add the .gitignore, because the merge will not work on a completely empty repo.
+
+Now let us add the remote skeleton location and merge it into our current master.
+
+```
+$ git remote add -f skel https://github.com/juhoffma/project-template.git
+$ git merge --squash -s recursive -X ours remotes/skel/master
+$ git commit -am "applying project template"
+```
+
+Great now the project template is applied and we can go ahead and define the new remote. In my case I am using a google drive to host my git repositories. The Google Drive is automagically synced to a local folder which means I am putting my local location as a new remote.
+
 ```
 $ GOOGLE_DRIVE_FOLDER="/Users/buddy/RH Google Drive"
-$ git clone --depth 1 --origin source https://github.com/juhoffma/project-template.git new-project
-$ cd new-project
-$ mkdir ${GOOGLE_DRIVE_FOLDER}/new-project.git
-$ pushd ${GOOGLE_DRIVE_FOLDER}/new-project.git > /dev/null
-$ git init --shared --bare
-$ popd > /dev/null
-$ git remote add google ${GOOGLE_DRIVE_FOLDER}/new-project.git
-$ git push google master
+mkdir "${GOOGLE_DRIVE_FOLDER}/new-project.git"
+cd "${GOOGLE_DRIVE_FOLDER}/new-project.git"
+git init --shared --bare
+cd -
+git remote add origin "${GOOGLE_DRIVE_FOLDER}/new-project.git"
+git push origin master
+
+Counting objects: 7, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (7/7), 1.63 KiB | 0 bytes/s, done.
+Total 7 (delta 0), reused 0 (delta 0)
+To /Users/buddy/RH Google Drive/new-project.git
+ * [new branch]      master -> master
 ```
+
+That's it, now you are good to go
+
 Buddy
